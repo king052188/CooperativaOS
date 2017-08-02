@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+
+use Illuminate\Support\Facades\Crypt;
 use DB;
 
 class Helper extends Controller
@@ -194,6 +196,8 @@ class Helper extends Controller
         if($data == null) {
             return null;
         }
+
+        dd($data);
 
         if(count($data) == 0) {
             return null;

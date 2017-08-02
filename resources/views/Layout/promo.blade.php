@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="http://www.kpa21.info">
     <link rel="shortcut icon" href="{{ asset('/images/fbi_dark_logo.png') }}">
-    <title>F3H Project - On-Going Registration</title>
+    <title>CooperativeOS - Be part of our organization</title>
 
     <!-- SEO -->
     <meta name="description" content="OUR VISION A transformed and peaceful society where there is equality, debt-free, social justice and order for everyone.
@@ -19,15 +19,15 @@
 
     OUR MISSION To empower the people in the Community by organizing and uniting them through raising their social consciousness in preserving peace and order, actively participate in community development and nation building and enlightening them about financial awareness thus liberating them from the bondage of poverty and turning them self-reliant and making realize that the foundation of the Community is based on trust.
     " />
-    <meta property="og:title" content="F3H Project - On-Going Registration" />
-    <meta property="og:url" content="http://fbi-ph.org" />
+    <meta property="og:title" content="CooperativeOS - Be part of our organization" />
+    <meta property="og:url" content="http://kpa.ph" />
     <meta property="og:type" content="website" />
 
-    <meta name="twitter:title" content="F3H Project - On-Going Registration" />
-    <meta name="twitter:site" content="http://fbi-ph.org" />
+    <meta name="twitter:title" content="CooperativeOS - Be part of our organization" />
+    <meta name="twitter:site" content="http://kpa.ph" />
     <!--//END SEO -->
 
-    <link rel="shortcut icon" type="image/png" href="{{ asset('/images/fbi_dark_logo.png') }}"/>
+    <link rel="shortcut icon" type="image/png" href="{{ asset('/images/_logo.png') }}"/>
 
     <!-- Bootstrap -->
     <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
@@ -42,24 +42,14 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
-
 <body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=239866523142614";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
 <div id="wrapper">
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <img src="{{ asset('/images/fbi_dark_logo.png') }}" style="width: 256px;" title="FBI-PH.org" alt="FBI-PH.org">
-                <h1 style="margin-top: 0px;">F3H<span style="color: #f2d06e;">PROJECT</span></h1>
-                <h2 style="margin-top: -35px;" class="subtitle">ON-GOING REGISTRATION</h2>
+                <img src="{{ asset('/images/_logo.png') }}" style="width: 230px;" title="FBI-PH.org" alt="FBI-PH.org">
+                <h1 style="margin-top: 15px;">COOPERATIVE<span style="color: #f2d06e;">OS</span></h1>
+                <h2 style="margin-top: -30px;" class="subtitle">BE PART OF US,<br />AND WITH YOUR HANDS YOUR HEARTS.</h2>
                 <style>
                     a.btn_v2 {
                         background: #3498db;
@@ -71,9 +61,9 @@
                         -webkit-border-radius: 28;
                         -moz-border-radius: 28;
                         border-radius: 28px;
-                        font-family: Arial;
                         color: #ffffff;
                         font-size: 37px;
+                        font-weight: 600;
                         padding: 10px 20px 10px 20px;
                         text-decoration: none;
                     }
@@ -82,29 +72,20 @@
                         text-decoration: none;
                     }
                 </style>
-                <div style="margin-top: 35px;">
-                    <a href="/endorsement/link/78ac81cfae86880313195fbb934a28e5" class="btn_v2">JOIN NOW!</a>
+                <div style="margin-top: 75px;">
+                    <a href="/login" class="btn_v2">Get Started!</a>
                 </div>
-                <div style="margin-top: 35px;" id="countdown"></div>
             </div>
         </div>
 
-        <div style="margin-top: -25px;" class="fb-page" data-href="https://www.facebook.com/filipinobayanihan" data-tabs="timeline" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/filipinobayanihan" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/filipinobayanihan">FBI in the Philippines</a></blockquote></div>
-
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3">
-                <p class="copyright">2017 &copy; FBI PH.</p>
+                <p class="copyright">{{ date("Y") }} &copy; <a href="http://www.kpa21.info">KPA Inc.</a></p>
             </div>
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="{{ asset('/js/jquery-1.10.2.min.js') }}"></script>
 <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('/js/jquery.countdown.min.js') }}"></script>
-<script type="text/javascript">
-    $('#countdown').countdown('2017/04/15', function(event) {
-        $(this).html(event.strftime('%w weeks %d days <br /> %H:%M:%S'));
-    });
-</script>
 </body>
 </html>

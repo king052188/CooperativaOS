@@ -4,7 +4,7 @@
 $url_secured = $helper["status"];
 ?>
 <head>
-    <title>FBI - Portal</title>
+    <title>Cooperative - Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="icon" href="{{ asset('images/k-icon.png', $url_secured) }}" type="image/x-icon">
@@ -197,7 +197,7 @@ $url_secured = $helper["status"];
         <div class="content-main">
             @yield("content")
             <div class="copy">
-                <p> &copy; {{ date("Y") }} FB Inc. </p>
+                <p>{{ date("Y") }} &copy; <a href="http://www.kpa21.info">KPA Inc.</a></p>
             </div>
         </div>
         <div class="clearfix"> </div>

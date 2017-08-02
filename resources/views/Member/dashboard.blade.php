@@ -161,7 +161,7 @@
                                 x: -20 //center
                             },
                             subtitle: {
-                                text: 'Source: www.FBI-PH.org',
+                                text: 'Source: www.CooperativeOS.org',
                                 x: -20
                             },
                             xAxis: {
@@ -188,23 +188,20 @@
                                 borderWidth: 0
                             },
                             series: [{
-                                name: 'FIBAT',
-                                data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-                            }, {
-                                name: 'DAMAYAN',
-                                data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+                                name: 'POINTS',
+                                data: [10.0, 25.0, 55.0, 32.0, 15.0, 28.0, 86.0, 12.0, 15.0, 26.0, 30.0, 24.0]
                             }, {
                                 name: 'RECEIVED',
-                                data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+                                data: [20.0, 15.0, 75.0, 42.0, 25.0, 38.0, 56.0, 19.0, 25.0, 36.0, 20.0, 14.0]
                             }, {
                                 name: 'SENT',
-                                data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+                                data: [15.0, 25.0, 95.0, 82.0, 65.0, 78.0, 66.0, 59.0, 85.0, 76.0, 60.0, 54.0]
                             }]
                         });
                     });
                 </script>
-                <script src="https://code.highcharts.com/highcharts.js"></script>
-                <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                <script src="{{ asset("/js/highcharts.js", $url_secured) }}"></script>
+                <script src="{{ asset("/js/exporting.js", $url_secured) }}"></script>
                 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
             </div>
@@ -279,8 +276,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h2 id="success_noti" class="text-center"><img src="http://icons.iconarchive.com/icons/graphicloads/100-flat-2/128/check-1-icon.png" class="img-circle"><br>Success</h2>
-                    <h2 id="alert_noti" class="text-center" style="display: none;"><img src="http://icons.iconarchive.com/icons/graphicloads/100-flat-2/128/information-icon.png" class="img-circle"><br>Alert</h2>
+                    <h2 id="success_noti" class="text-center"><img src="{{ asset("/images/check-1-icon.png", $url_secured) }}" class="img-circle"><br>Success</h2>
+                    <h2 id="alert_noti" class="text-center" style="display: none;"><img src="{{ asset("/images/information-icon.png", $url_secured) }}" class="img-circle"><br>Alert</h2>
                 </div>
                 <div class="modal-body row">
                     <div id="success_msg">
@@ -295,7 +292,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <h6 class="text-center"><a href="mailto:filipinobayanihaninc@gmail.com">For more info email us at filipinobayanihaninc@gmail.com</a></h6>
+                    <h6 class="text-center"><a href="mailto:cooperative.os@gmail.com">For more info email us at cooperative.os@gmail.com</a></h6>
                 </div>
             </div>
         </div>

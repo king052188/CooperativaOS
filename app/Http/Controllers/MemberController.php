@@ -170,7 +170,10 @@ class MemberController extends Controller
         $helper = Helper::ssl_secured($request);
         $user = Helper::getCookies();
 
-        if($user == null) {
+
+        dd(COUNT($user));
+
+        if( COUNT($user) == 0 ) {
             return redirect('/logout');
         }
 
@@ -204,7 +207,7 @@ class MemberController extends Controller
         $helper = Helper::ssl_secured($request);
         $user = Helper::getCookies();
 
-        if($user == null) {
+        if( COUNT($user) == 0 ) {
             return redirect('/logout');
         }
 
@@ -537,6 +540,6 @@ class MemberController extends Controller
     public function member_sign_out_process(Request $request) {
         Helper::flushCookies();
         Helper::flushCookies("endorsement_session");
-        return redirect("/login");
+        return redirect("/");
     }
 }

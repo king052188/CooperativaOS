@@ -270,50 +270,10 @@
         <div class="clearfix"> </div>
     </div>
 
-
-    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h2 id="success_noti" class="text-center"><img src="{{ asset("/images/check-1-icon.png", $url_secured) }}" class="img-circle"><br>Success</h2>
-                    <h2 id="alert_noti" class="text-center" style="display: none;"><img src="{{ asset("/images/information-icon.png", $url_secured) }}" class="img-circle"><br>Alert</h2>
-                </div>
-                <div class="modal-body row">
-                    <div id="success_msg">
-                        <h5 class="text-center">Your Payment has been sent!</h5>
-                        <h6 class="text-center" style="margin-top: 5px;">Please allow us to evaluate your account within 24 to 48 Hours.</h6>
-                    </div>
-
-                    <div id="alert_msg" style="display: none;">
-                        <h5 class="text-center">Your Account is not Activated!</h5>
-                        <h6 class="text-center" style="margin-top: 5px;">Please allow us to evaluate your account within 24 to 48 Hours</h6>
-                        <h6 class="text-center" style="margin-top: 5px;">Or Send an email to us for confirmation.</h6>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <h6 class="text-center"><a href="mailto:cooperative.os@gmail.com">For more info email us at cooperative.os@gmail.com</a></h6>
-                </div>
-            </div>
-        </div>
-    </div>
     @if (session('message'))
         <script>
             $(document).ready(function() {
                 $('#modal_event').click();
-            })
-        </script>
-    @else
-        <script>
-            $(document).ready(function() {
-                var status = {{ $user[0]->status }};
-                if (status == 2) {
-                    $('#success_noti').hide();
-                    $('#alert_noti').show();
-                    $('#success_msg').hide();
-                    $('#alert_msg').show();
-                    $('#modal_event').click();
-                }
             })
         </script>
     @endif

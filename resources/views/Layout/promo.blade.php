@@ -51,13 +51,7 @@
                 <h1 style="margin-top: 15px;">COOPERATIVE<span style="color: #f2d06e;">OS</span></h1>
                 <h2 style="margin-top: -30px;" class="subtitle">BE PART OF US,<br />AND WITH YOUR HANDS YOUR HEARTS.</h2>
                 <style>
-                    a.btn_v2 {
-                        background: #3498db;
-                        background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-                        background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-                        background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-                        background-image: -o-linear-gradient(top, #3498db, #2980b9);
-                        background-image: linear-gradient(to bottom, #3498db, #2980b9);
+                    a.btn_ {
                         -webkit-border-radius: 28;
                         -moz-border-radius: 28;
                         border-radius: 28px;
@@ -67,13 +61,38 @@
                         padding: 10px 20px 10px 20px;
                         text-decoration: none;
                     }
-                    a.btn_v2:hover {
+                    a.view_account {
+                        background: #3E5C94;
+                        background-image: -webkit-linear-gradient(top, #3E5C94, #3E5C94);
+                        background-image: -moz-linear-gradient(top, #3E5C94, #3E5C94);
+                        background-image: -ms-linear-gradient(top, #3E5C94, #3E5C94);
+                        background-image: -o-linear-gradient(top, #3E5C94, #3E5C94);
+                        background-image: linear-gradient(to bottom, #3E5C94, #3E5C94);
+                    }
+                    a.view_account:hover {
                         background: #3498db;
                         text-decoration: none;
                     }
+
+                    a.add_member {
+                        background: #C8A339;
+                        background-image: -webkit-linear-gradient(top, #C8A339, #C8A339);
+                        background-image: -moz-linear-gradient(top, #C8A339, #C8A339);
+                        background-image: -ms-linear-gradient(top, #C8A339, #C8A339);
+                        background-image: -o-linear-gradient(top, #C8A339, #C8A339);
+                        background-image: linear-gradient(to bottom, #C8A339, #C8A339);
+                    }
+                    a.add_member:hover {
+                        background: #EEC95F;
+                        text-decoration: none;
+                    }
                 </style>
-                <div style="margin-top: 75px;">
-                    <a href="/login" class="btn_v2">Get Started!</a>
+                <div style="margin-top: 70px;">
+                    <a href="/sign-up" class="btn_ view_account">&nbsp;Add Account!&nbsp;</a>
+                </div>
+
+                <div style="margin-top: 50px;">
+                    <a href="/login" class="btn_ add_member">View Account!</a>
                 </div>
             </div>
         </div>

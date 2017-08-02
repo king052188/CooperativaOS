@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exceptions\Handler;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Member;
 use App\MemberBasic;
 use App\MemberBeneficiary;
@@ -67,7 +68,7 @@ class MemberController extends Controller
             return view('layout.404', compact('helper'));
         }
         else {
-            $request->session()->put('endorsement_session', $member_information);
+            $request->session()->put('endorsement_session', $endorser_account);
             return redirect('/sign-up/');
                 //->withCookie(\Cookie::make('endorsement_session', $endorser_account, Helper::$cookie_life_default));
         }
@@ -106,8 +107,6 @@ class MemberController extends Controller
             return redirect('/sign-up')->with('message', 'Oops, Please select your gender.');
         }
 
-        $specialist = Helper::get_member_information($request->specialist);
-
         $endorser_id = 0;;
         $endorser = Helper::getCookies('endorsement_session');
         if($endorser == null) {
@@ -121,12 +120,18 @@ class MemberController extends Controller
             $endorser_id = $endorser["Id"];
         }
 
-        $specialist_uid = 0;
-        if($specialist != null) {
-            $specialist_uid = $specialist[0]->Id;
+        $check_email = Helper::is_exist($request->email);
+        if($check_email) {
+            return redirect('/sign-up')->with('message', 'Oops, Email address is already exists.');
         }
 
-        $password_code = Helper::get_random_password();
+        $check_email = Helper::is_exist($request->mobile);
+        if($check_email) {
+            return redirect('/sign-up')->with('message', 'Oops, Mobile number is already exists.');
+        }
+
+
+        $password_code = Helper::get_random_password("@password");
 
         $member  = new Member();
         $member->role = 1;
@@ -139,7 +144,6 @@ class MemberController extends Controller
         $member->email = $request->email;
         $member->mobile = $request->mobile;
         $member->endorse_uid = $endorser_id;
-        $member->specialist_uid = $specialist_uid;
         $member->status = 1; // default 1, meaning member is not yet verified. 2 is verified!
         $result = $member->save();
         $issued_uid = $member->id;
@@ -160,13 +164,7 @@ class MemberController extends Controller
                   )
                 );
 
-            $h = Helper::post_password_email_send($request->first_name, $request->email, $user_hash_code, $password_code["new_password"]);
-
-            if($h["Status"] == 200) {
-                return redirect('/sign-up/verification');
-            }
-
-            return redirect('/sign-up')->with('message', 'Oops, Error sending your account information, Please contact FBI Admin.');
+            return redirect('/sign-up/verification');
 
         }
         return redirect('/sign-up')->with('message', 'Oops, Something went wrong. Please try again');
@@ -177,7 +175,7 @@ class MemberController extends Controller
 
         $helper = Helper::ssl_secured($request);
         $user = Helper::getCookies();
-
+        
         if( COUNT($user) == 0 ) {
             return redirect('/logout');
         }

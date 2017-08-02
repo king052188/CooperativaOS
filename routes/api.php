@@ -19,3 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('/members/{type}', 'ApiController@member_populate');
+
+Route::get('/members/depositing/execute', 'ApiController@save_deposit');
+Route::get('/members/savings/transaction/{mid}', 'ApiController@get_transaction');
+
+Route::get('/random/code/{length?}', 'ApiController@get_random_number');

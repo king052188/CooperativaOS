@@ -51,7 +51,7 @@ $url_secured = $helper["status"];
 <body class="login-page">
 <div class="login-box">
     <div class="logo" style="background: #4267b2; padding: 10px;">
-        <a href="javascript:void(0);"><b>Log In</b>- Form</a>
+        <a href="/"><b>Log In</b> - Form</a>
         <small>Sign In to start your CooperativeOS!</small>
     </div>
     <div class="card">

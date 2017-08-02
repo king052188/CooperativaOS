@@ -83,7 +83,7 @@ $url_secured = $helper["status"];
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <h1> <a class="navbar-brand" href="/dashboard">FBI</a></h1>
+            <h1> <a class="navbar-brand" href="/dashboard">CoopOS</a></h1>
         </div>
 
         <div class=" border-bottom">

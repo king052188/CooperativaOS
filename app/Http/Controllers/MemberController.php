@@ -15,6 +15,8 @@ class MemberController extends Controller
 {
     // login processing
     public function member_sign_in_index(Request $request) {
+        $request->session()->regenerate();
+
         $helper = Helper::ssl_secured($request);
         $user = Helper::getCookies();
         if($user != null) {
@@ -36,16 +38,20 @@ class MemberController extends Controller
             }
         }
 
-        return redirect('/dashboard')
-            ->withCookie(\Cookie::make('fbi_session', $member_information, Helper::$cookie_life_default));
+        $request->session()->put('fbi_session', $member_information);
+
+        return redirect('/dashboard');
+            //->withCookie(\Cookie::make('fbi_session', $member_information, Helper::$cookie_life_default));
     }
 
     public function member_sign_in_validation_v2(Request $request) {
         $account = $request->code;
         $member_information = Helper::get_member_information($account);
         if( COUNT($member_information) > 0 ) {
-            return redirect('/dashboard')
-                ->withCookie(\Cookie::make('fbi_session', $member_information, Helper::$cookie_life_default));
+
+            $request->session()->put('fbi_session', $member_information);
+            return redirect('/dashboard');
+                //->withCookie(\Cookie::make('fbi_session', $member_information, Helper::$cookie_life_default));
         }
         return redirect('/login')->with('message', 'Please enter your valid account.');
     }
@@ -61,8 +67,9 @@ class MemberController extends Controller
             return view('layout.404', compact('helper'));
         }
         else {
-            return redirect('/sign-up/')
-                ->withCookie(\Cookie::make('endorsement_session', $endorser_account, Helper::$cookie_life_default));
+            $request->session()->put('endorsement_session', $member_information);
+            return redirect('/sign-up/');
+                //->withCookie(\Cookie::make('endorsement_session', $endorser_account, Helper::$cookie_life_default));
         }
     }
 
@@ -84,8 +91,8 @@ class MemberController extends Controller
 
     public function member_sign_up_index(Request $request, $clear = null) {
         if($clear != null) {
-            Helper::flushCookies();
-            Helper::flushCookies("endorsement_session");
+            Helper::flushCookies($request);
+            Helper::flushCookies($request, "endorsement_session");
             return redirect('/registration/verification');
         }
 
@@ -167,11 +174,9 @@ class MemberController extends Controller
     // end registration processing
     
     public function dashboard_index(Request $request) {
+
         $helper = Helper::ssl_secured($request);
         $user = Helper::getCookies();
-
-
-        dd(COUNT($user));
 
         if( COUNT($user) == 0 ) {
             return redirect('/logout');
@@ -538,8 +543,8 @@ class MemberController extends Controller
     }
 
     public function member_sign_out_process(Request $request) {
-        Helper::flushCookies();
-        Helper::flushCookies("endorsement_session");
+        Helper::flushCookies($request);
+        Helper::flushCookies($request, "endorsement_session");
         return redirect("/");
     }
 }

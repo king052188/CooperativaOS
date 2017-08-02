@@ -191,26 +191,28 @@ class Helper extends Controller
 
     public static function getCookies($cookies_name = "fbi_session")
     {
-        $data = \Cookie::get($cookies_name);
+        // $data = \Cookie::get($cookies_name);
 
-        if($data == null) {
-            return null;
-        }
+        // if($data == null) {
+        //     return null;
+        // }
 
-        dd($data);
+        // if(count($data) == 0) {
+        //     return null;
+        // }
+        
+        $value = session($cookies_name);
 
-        if(count($data) == 0) {
-            return null;
-        }
-
-        return $data;
+        return $value;
     }
 
-    public static function flushCookies($cookies_name = "fbi_session") {
+    public static function flushCookies($request, $cookies_name = "fbi_session") {
         \Cookie::forget($cookies_name);
         \Cookie::queue(\Cookie::forget($cookies_name));
 
         \Cache::flush();
+
+        $request->session()->forget($cookies_name);
     }
 
     public static function get_current_time_stamp($value = null) {
